@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1f6f4a" />
+    <meta name="description" content="Catálogo simples de receitas em PWA, offline e sem build." />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Receitas</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <p class="eyebrow">Catálogo de receitas</p>
+        <h1>Receitas</h1>
+        <p class="lede">Busca rápida por nome ou ingrediente. Funciona no celular e offline.</p>
+      </div>
+    </header>
+
+    <main id="conteudo" class="wrap" tabindex="-1">
+      <section class="toolbar" aria-labelledby="filtros-titulo">
+        <h2 id="filtros-titulo" class="sr-only">Filtros</h2>
+        <label class="search-field" for="busca">
+          <span>Buscar</span>
+          <input id="busca" name="busca" type="search" placeholder="Ex.: tomate, sopa, arroz" autocomplete="off" />
+        </label>
+        <p id="status" class="status" role="status" aria-live="polite">Carregando receitas…</p>
+      </section>
+
+      <section aria-labelledby="lista-titulo">
+        <h2 id="lista-titulo" class="section-title">Receitas</h2>
+        <div id="erro" class="notice notice-error" hidden></div>
+        <div id="empty" class="notice" hidden>Nenhuma receita encontrada.</div>
+        <div id="lista" class="recipe-grid" aria-live="polite"></div>
+      </section>
+    </main>
+
+    <template id="recipe-template">
+      <article class="recipe-card">
+        <header class="recipe-head">
+          <div>
+            <h3 class="recipe-title"></h3>
+            <p class="recipe-meta"></p>
+          </div>
+          <button class="toggle" type="button" aria-expanded="false">Detalhes</button>
+        </header>
+        <div class="recipe-body" hidden>
+          <p class="recipe-subtitle">Ingredientes</p>
+          <ul class="ingredients"></ul>
+        </div>
+      </article>
+    </template>
+
+    <script src="app.js" defer></script>
+  </body>
+</html>

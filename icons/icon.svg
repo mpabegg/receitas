@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Receitas</title>
+  <desc id="desc">Ícone simples de livro de receitas em verde.</desc>
+  <rect width="512" height="512" rx="96" fill="#1f6f4a"/>
+  <path d="M154 126h176c31 0 56 25 56 56v148c0 17-14 31-31 31H170c-24 0-44 20-44 44V182c0-31 25-56 28-56Zm28 48v158h140c13 0 24-11 24-24V174H182Z" fill="#f6f7f4"/>
+  <path d="M216 206h96M216 246h96M216 286h62" stroke="#1f6f4a" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="190" cy="204" r="16" fill="#1f6f4a"/>
+</svg>

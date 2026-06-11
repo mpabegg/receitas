@@ -1,0 +1,43 @@
+[
+  {
+    "id": "salada-simples",
+    "name": "Salada simples",
+    "ingredients": [
+      "Alface",
+      "Tomate",
+      "Cebola roxa",
+      "Azeite",
+      "Sal"
+    ]
+  },
+  {
+    "id": "sopa-legumes",
+    "name": "Sopa de legumes",
+    "ingredients": [
+      "Batata",
+      "Cenoura",
+      "Abobrinha",
+      "Cebola",
+      "Caldo ou água"
+    ]
+  },
+  {
+    "id": "pao-na-chapa",
+    "name": "Pão na chapa",
+    "ingredients": [
+      "Pão",
+      "Manteiga"
+    ]
+  },
+  {
+    "id": "arroz-colorido",
+    "name": "Arroz colorido",
+    "ingredients": [
+      "Arroz cozido",
+      "Milho",
+      "Ervilha",
+      "Cenoura ralada",
+      "Ovo opcional"
+    ]
+  }
+]

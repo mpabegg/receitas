@@ -6,10 +6,67 @@ const elements = {
   error: document.querySelector('#erro'),
   status: document.querySelector('#status'),
   template: document.querySelector('#recipe-template'),
+  installCard: document.querySelector('#install-card'),
+  installButton: document.querySelector('#install-button'),
+  installHelp: document.querySelector('#install-help'),
 };
 
 let allRecipes = [];
 let filteredRecipes = [];
+let deferredInstallPrompt = null;
+
+function isStandalone() {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone === true;
+}
+
+function isIos() {
+  return /iphone|ipad|ipod/i.test(window.navigator.userAgent);
+}
+
+function showInstallCard(message, buttonText = 'Instalar') {
+  if (isStandalone()) return;
+
+  elements.installHelp.textContent = message;
+  elements.installButton.textContent = buttonText;
+  elements.installCard.hidden = false;
+}
+
+function hideInstallCard() {
+  elements.installCard.hidden = true;
+}
+
+function setupInstallPrompt() {
+  if (isStandalone()) {
+    hideInstallCard();
+    return;
+  }
+
+  if (isIos()) {
+    showInstallCard('No iPhone/iPad: toque em Compartilhar e depois em “Adicionar à Tela de Início”.', 'Como adicionar');
+  }
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredInstallPrompt = event;
+    showInstallCard('Instale este catálogo na tela inicial para abrir como app.', 'Adicionar');
+  });
+
+  window.addEventListener('appinstalled', () => {
+    deferredInstallPrompt = null;
+    hideInstallCard();
+  });
+
+  elements.installButton.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) {
+      showInstallCard('No iPhone/iPad: toque em Compartilhar e depois em “Adicionar à Tela de Início”.', 'Entendi');
+      return;
+    }
+
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+  });
+}
 
 function normalize(text) {
   return String(text || '')
@@ -102,6 +159,7 @@ async function loadRecipes() {
 
 elements.search.addEventListener('input', applyFilter);
 
+setupInstallPrompt();
 loadRecipes();
 
 if ('serviceWorker' in navigator) {

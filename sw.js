@@ -1,4 +1,4 @@
-const CACHE_NAME = 'receitas-pwa-v1';
+const CACHE_NAME = 'receitas-pwa-v2';
 const ASSETS = [
   './',
   './index.html',
@@ -6,6 +6,9 @@ const ASSETS = [
   './app.js',
   './recipes.json',
   './manifest.webmanifest',
+  './icons/apple-touch-icon.png',
+  './icons/icon-192.png',
+  './icons/icon-512.png',
   './icons/icon.svg',
 ];
 
@@ -31,7 +34,7 @@ self.addEventListener('fetch', (event) => {
   const { request } = event;
   if (request.mode === 'navigate') {
     event.respondWith(
-      caches.match('./index.html').then((cached) => cached || fetch(request))
+      fetch(request).catch(() => caches.match('./index.html'))
     );
     return;
   }

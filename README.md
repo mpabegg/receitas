@@ -9,6 +9,7 @@ Catálogo estático de receitas, pronto para GitHub Pages.
 - Busca por nome ou ingrediente
 - Detalhes por receita com ingredientes
 - Cache offline com service worker
+- Ajuda para adicionar o catálogo à tela inicial do telefone
 
 ## Como editar
 

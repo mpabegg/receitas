@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#1f6f4a" />
     <meta name="description" content="Catálogo simples de receitas em PWA, offline e sem build." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Receitas" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
     <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="icons/apple-touch-icon.png" />
     <link rel="icon" href="icons/icon.svg" type="image/svg+xml" />
     <link rel="stylesheet" href="styles.css" />
     <title>Receitas</title>
@@ -29,6 +33,14 @@
           <input id="busca" name="busca" type="search" placeholder="Ex.: tomate, sopa, arroz" autocomplete="off" />
         </label>
         <p id="status" class="status" role="status" aria-live="polite">Carregando receitas…</p>
+      </section>
+
+      <section id="install-card" class="install-card" aria-labelledby="install-title" hidden>
+        <div>
+          <h2 id="install-title">Adicionar à tela inicial</h2>
+          <p id="install-help">Abra este catálogo como app no celular para acessar mais rápido.</p>
+        </div>
+        <button id="install-button" class="install-button" type="button">Instalar</button>
       </section>
 
       <section aria-labelledby="lista-titulo">

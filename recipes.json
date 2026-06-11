@@ -39,5 +39,15 @@
       "Cenoura ralada",
       "Ovo opcional"
     ]
+  },
+  {
+    "id": "carbonara",
+    "name": "Carbonara",
+    "ingredients": [
+      "Queijo",
+      "Ovo",
+      "Bacon",
+      "Massa"
+    ]
   }
 ]
